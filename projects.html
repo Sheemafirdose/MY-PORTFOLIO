@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .project-item {
+      margin-bottom: 30px;
+    }
+
+    .project-item .icon {
+      font-size: 3rem;
+      color: #007bff;
+    }
+
+    .project-item .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .project-item .description {
+      font-size: 1rem;
+    }
+
+    /* Smooth scroll for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">My Projects</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#projects">Projects</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Projects</h2>
+      <p>Explore some of my AI and Machine Learning projects, including NLP applications, sentiment analysis, and
+        predictive analytics.</p>
+    </div>
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 project-item d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon flex-shrink-0"><i class="bi bi-chat-square-text"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">AI-Powered Self-Intro Practice</a></h4>
+            <p class="description">An AI-driven tool that analyzes self-introductions, compares them with resumes, and provides personalized feedback using NLP and LLMs.<br>
+            <strong>Technologies Used:</strong> Python, Streamlit, Natural Language Processing (NLP), Sentiment Analysis, Transformer Models like Mistral AI (Hugging Face).</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 project-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon flex-shrink-0"><i class="bi bi-award-fill"></i></div>
+          <div>
+            <h4 class="title"><a href="#student-ranking" class="stretched-link">Student Ranking System (Live Demo)</a></h4>
+            <p class="description">Developed a ranking system that evaluates students holistically by considering GPA, extracurricular activities, and attendance. It identifies top-performing students and provides detailed attendance insights based on uploaded data.<br>
+            <strong>Technologies Used:</strong> Python, Pandas, Streamlit.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 project-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon flex-shrink-0"><i class="bi bi-person-lines-fill"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Portfolio Website (Live Demo)</a></h4>
+            <p class="description">Developed a personal portfolio website to showcase projects, technical skills, and achievements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details Sections (for smooth scrolling) -->
+  <section id="student-ranking" class="project-details">
+    <div class="container">
+      <h3>Student Ranking System</h3>
+      <p>Details about the Student Ranking System...</p>
+    </div>
+  </section>
+
+  <section id="resume-screening" class="project-details">
+    <div class="container">
+      <h3>Resume Screening with NLP</h3>
+      <p>Details about Resume Screening with NLP...</p>
+    </div>
+  </section>
+
+  <section id="research-paper-ner" class="project-details">
+    <div class="container">
+      <h3>Research Paper NER</h3>
+      <p>Details about Research Paper NER...</p>
+    </div>
+  </section>
+
+  <section id="learning-resource-hub" class="project-details">
+    <div class="container">
+      <h3>AI-Powered Learning Resource Hub</h3>
+      <p>Details about the AI-Powered Learning Resource Hub...</p>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS, Popper.js, AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init(); // Initialize AOS for animations
+  </script>
+</body>
+
+</html>

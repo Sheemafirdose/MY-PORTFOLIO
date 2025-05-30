@@ -1,0 +1,2861 @@
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  /*--background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #f1f1f1;   /* Was #272829 */
+  --heading-color: #f1f1f1;   /* Was #050d18 */
+  --accent-color: #3a82e7; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #F8F8E1; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #f1f1f1;  /* The default color of the main navmenu links */
+  --nav-hover-color: #4e54c8; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #F8F8E1; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+
+
+/* Reset unwanted gaps caused by body padding on all direct children sections */
+body > * {
+  margin: 0;
+  padding: 0;
+  
+  color: var(--default-color);
+  font-family: var(--default-font);
+ 
+ background: url('../img/portfolio/newbg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+/* Add this at the end of your CSS file or in a custom section */
+
+/* General box styling for curved edges */
+.section,
+.section-title,
+.info-wrap,
+.resume,
+.resume-card,
+.skills,
+.contact .php-email-form,
+.about .content,
+.about .profile-img,
+.starter-section,
+.project-item,
+.portfolio-details .portfolio-info,
+.portfolio-details .portfolio-description {
+  border-radius: 24px; /* Match your profile pic's curve */
+  overflow: hidden;
+  /* Optional: add a subtle shadow for better effect */
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.08);
+}
+
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f4fafd;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  font-family: var(--default-font);
+  background: url('') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+title{
+   color: var(--heading-color);
+  font-family: var(--heading-font);
+   font-size: 50px !important;
+   font-weight: 1000;
+   line-height: 1.7;
+}
+#keywords,#description{
+   color: var(--heading-color);
+  font-family: var(--heading-font);
+   font-size: 30px !important;
+   font-weight: 500;
+   line-height: 1.7;
+}
+h1
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+   font-size: 30px !important;
+   font-weight: 600;
+   line-height: 1.7;
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  width: 220px;
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+   background: #080808; /* solid black */
+  z-index: 997;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(90deg, #f59aca 0%, #f59aca 100%);
+  border-radius: 1px;
+  box-shadow: 0 2px 12px #149ddd66;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header .logo {
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.header .social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;      /* Center vertically */
+  gap: 50px;                    /* Increase gap between icons */
+  flex: 1;                      /* Take available vertical space */
+  height: 100vh;                /* Full viewport height */
+  margin: 0;                /* Remove extra margin */
+}
+
+.header .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;         /* Match horizontal nav size */
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #000000 0%, #000000 100%); /* Match horizontal nav background */
+  color: var(--nav-color); /* Match horizontal nav color */
+  font-size: 24px;    /* Match horizontal nav icon size */
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(34, 30, 60, 0.10);
+  margin: 0;
+}
+
+.header .social-links a:hover {
+  background: none !important;
+  color: #fff !important;
+  text-shadow: 0 2px 16px #fff, 0 0 6px #fff;
+  box-shadow: 0 4px 24px #fff4;
+  transition: color 0.2s, text-shadow 0.3s, box-shadow 0.3s;
+}
+
+.header {
+  /* ...existing code... */
+  width: 78px;
+  
+  /* ...existing code... */
+}
+
+@media (min-width: 1200px) {
+  .header~main,
+  .header~#footer {
+    margin-left: 78px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header {
+    left: -100%;
+  }
+}
+
+.header.header-show {
+  left: 0;
+}
+
+.header .header-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.header .header-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.mobile-nav-toggle {
+  display: none;
+}
+
+.navmenu {
+  padding: 0;
+  z-index: 9997;
+  background-color: var(--nav-background-color);
+  backdrop-filter: var(--nav-backdrop-blur);
+  -webkit-backdrop-filter: var(--nav-backdrop-blur); /* Safari support */
+  border-bottom: 1px solid var(--nav-border-color);
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  padding: 15px 10px;
+  font-family: var(--nav-font);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.navmenu a .navicon,
+.navmenu a:focus .navicon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.navmenu a .toggle-dropdown,
+.navmenu a:focus .toggle-dropdown {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  flex-shrink: 0;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.navmenu a .toggle-dropdown:hover,
+.navmenu a:focus .toggle-dropdown:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+.navmenu a:hover .navicon,
+.navmenu .active .navicon,
+.navmenu .active:focus .navicon {
+  color: var(--accent-color);
+}
+
+.navmenu .active .toggle-dropdown,
+.navmenu .active:focus .toggle-dropdown {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: rotate(180deg);
+}
+
+.navmenu .dropdown {
+  display: block;
+}
+
+.navmenu .dropdown a,
+.navmenu .dropdown a:focus {
+  color: --nav-dropdown-color;
+}
+
+.navmenu .dropdown a:hover,
+.navmenu .dropdown .active,
+.navmenu .dropdown .active:focus {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.navmenu .dropdown ul {
+  position: static;
+  display: none;
+  z-index: 99;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  background-color: var(--nav-dropdown-background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navmenu .dropdown ul ul {
+  background-color: rgba(33, 37, 41, 0.1);
+}
+
+.navmenu .dropdown>.dropdown-active {
+  display: block;
+  background-color: rgba(33, 37, 41, 0.03);
+}
+
+/* Horizontal navbar styles */
+.navmenu-horizontal {
+  width: 100%;
+  background: linear-gradient(90deg, #0d0d0e 0%, #051632 100%);
+  box-shadow: 0 4px 24px rgba(34, 30, 60, 0.22);
+  border-bottom: 2px solid #f59aca;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 40px 0 0;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navmenu-horizontal ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navmenu-horizontal li {
+  display: inline-block;
+}
+
+.navmenu-horizontal a {
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  color: var(--nav-color) !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navmenu-horizontal a.active,
+.navmenu-horizontal a:hover {
+  background: none !important;
+  color: #fff !important;
+  text-shadow: 0 2px 16px #149ddd, 0 0 6px #4e54c8;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  transition: color 0.2s, text-shadow 0.3s;
+}
+
+.navmenu-horizontal a.active::after,
+.navmenu-horizontal a:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 8px;
+  height: 3px;
+  background: linear-gradient(90deg, #149ddd 0%, #f59aca 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 12px #149ddd66;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 99999;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  padding: 0;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-arrow-icon svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.scroll-top:hover {
+  background: rgba(252, 252, 252, 0.24);
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 2px 20px #fff8, 0 0 16px #fff;
+}
+
+.scroll-top:hover i,
+.scroll-top:hover .scroll-arrow-icon svg {
+  color: #fff !important;
+  filter: drop-shadow(0 2px 16px #fff) drop-shadow(0 0 6px #fff);
+  transition: color 0.2s, filter 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 25px 0;
+  position: relative;
+}
+
+.page-title h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  overflow: clip;
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+/*
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+ 
+  padding-bottom: 20px;
+  position: relative;
+}*/
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  text-align: center; /* <-- Add this line */
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #149ddd 0%, #f59aca 100%);
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px #149ddd66;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url('../img/hero-bg1.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  color: #fff;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 40, 0.45); /* adjust opacity as needed */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align to top */
+  height: auto;                /* Remove 100vh */
+  padding-top: 150px;           /* Reduce space above text */
+  padding-left: 30px;          /* Adjust as needed */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 40px;
+   margin-top: -40px; /* adjust as needed */
+}
+
+.hero-content h2 {
+  font-size: 12rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 3rem;
+  margin: 0;
+}
+.hero h1 {
+  font-size: 4rem;      /* Increase as needed */
+  font-weight: 500;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 90px;
+  font-weight: 700;
+}
+
+.hero p {
+  margin: 5px 0 0 0;
+  font-size: 30px;
+ font-weight: 500;
+  font-size: 3rem;
+}
+
+.hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Social icons styling */
+.hero .social-links {
+  margin-top: 25px;
+}
+
+.hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.hero .social-links a:hover {
+  color: var(--accent-color);
+}
+
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .content h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* Side-by-side layout for About section on desktop */
+.about .row {
+  display: flex;
+  flex-wrap: nowrap;      /* Prevent stacking on desktop */
+  align-items: stretch;   /* Make both columns the same height */
+  gap: 40px;              /* Space between image and content */
+}
+
+/* Make sure columns don't shrink too much */
+.about .col-lg-4,
+.about .col-lg-8 {
+  flex: 0 0 auto;
+}
+
+/* Profile pic container stays left, content right */
+.about-profile-pic-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  min-height: 220px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 991px) {
+  .about .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .about .col-lg-4,
+  .about .col-lg-8 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--accent-color);
+  line-height: 0;
+}
+
+
+.about-profile-pic {
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.142); /* Glassy border */
+  background: rgba(34, 30, 60, 0.18);      /* Glassy background */
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.18), 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+  position: relative;
+  z-index: 2;
+  
+}
+.about-profile-pic:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
+  box-shadow: 0 0 32px 8px rgba(255,255,255,0.32), 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-6px) scale(1.035);
+}
+
+.floating-profile {
+  animation: floatPic 3s ease-in-out infinite;
+}
+
+@keyframes floatPic {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-14px);}
+}
+
+.about-profile-pic-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  min-height: 220px;
+  margin: 0;
+}
+
+.about-content-box {
+  background: rgba(34, 30, 60, 0.48);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(20, 157, 221, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2px solid rgba(255,255,255,0.18);
+  padding: 48px 48px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1100px; /* Increased width */
+  width: 100%;
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s, backdrop-filter 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Stats Section
+--------------------------------------------------------------*/
+.stats .stats-item {
+  padding: 30px;
+  width: 100%;
+}
+
+.stats .stats-item i {
+  color: var(--accent-color);
+  display: block;
+  font-size: 44px;
+  float: left;
+  line-height: 0;
+}
+
+.stats .stats-item .purecounter {
+  color: var(--heading-color);
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  margin-left: 60px;
+}
+
+.stats .stats-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding: 15px 0 0 0;
+  margin: 0 0 0 60px;
+  font-family: var(--heading-font);
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+}
+.skill-intro {
+  text-align: center;
+  margin-top: 0;           /* Remove negative margin */
+  margin-bottom: 40px;     /* Add more space below */
+  font-size: 20px;
+  color: var(--default-color); /* Adjust or replace with a color like #fff */
+}
+
+
+#skills.section {
+  padding-top: 30px;
+}
+.skills .progress .skill {
+  color: var(--heading-color);
+  padding: 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  height: 10px;
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: var(--accent-color);
+}
+/*
+.skills-bars {
+  max-width: 1600px;   
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+  
+}*/
+.skill-bar {
+  background: rgba(34, 30, 60, 0.38) !important;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  transition: 
+    box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+    transform 0.22s cubic-bezier(.4,2,.6,1),
+    background 0.22s;
+  cursor: pointer;
+  word-break: break-word;
+}
+.skills-bars-row {
+  display: flex;
+  gap: 120px; /* or more for wider gap */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.skill-bar {
+  min-width: 520px;      /* Increased from 420px */
+  max-width: 700px;      /* Increased from 600px */
+  background: rgba(255,255,255,0.28);
+  border-radius: 22px;
+  padding: 10px 40px 6px 40px; /* More horizontal padding */
+  box-shadow: 0 4px 32px rgba(20, 157, 221, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  transition: 
+    box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+    transform 0.22s cubic-bezier(.4,2,.6,1),
+    background 0.22s;
+  cursor: pointer;
+  word-break: break-word; /* Ensures long words wrap if needed */
+}
+.skill-bar:hover {
+  background: rgba(20,157,221,0.08);
+  box-shadow: 0 8px 40px rgba(20, 157, 221, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+  transform: translateY(-6px) scale(1.025);
+}
+.skill-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #149ddd;
+  margin-bottom: 6px;
+}
+.bar-bg {
+  width: 100%;
+  height: 7px;              /* Slimmer bar */
+  background: #e0e7ef;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #149ddd 60%, #f59aca 100%);
+  border-radius: 8px;
+  transition: width 1.2s cubic-bezier(.4,2,.6,1);
+}
+.skill-percent {
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  margin-top: 2px;
+}
+@media (max-width: 800px) {
+  .skills-bars-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# Resume Section
+--------------------------------------------------------------*/
+.resume .resume-title {
+  color: var(--heading-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.resume-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 0 !important;
+  padding: 36px 0 !important;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 48px auto;
+  max-width: 900px;
+  transition: none;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+.portfolio .portfolio-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio .portfolio-content img {
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-content .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+}
+
+.portfolio .portfolio-content .portfolio-info h4 {
+  font-size: 14px;
+  padding: 5px 10px;
+  font-weight: 400;
+  color: #ffffff;
+  display: inline-block;
+  background-color: var(--accent-color);
+}
+
+.portfolio .portfolio-content .portfolio-info p {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio .portfolio-content .portfolio-info .preview-link,
+.portfolio .portfolio-content .portfolio-info .details-link {
+  position: absolute;
+  left: calc(50% - 40px);
+  font-size: 26px;
+  top: calc(50% - 14px);
+  color: #fff;
+  transition: 0.3s;
+  line-height: 1.2;
+}
+
+.portfolio .portfolio-content .portfolio-info .preview-link:hover,
+.portfolio .portfolio-content .portfolio-info .details-link:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-content .portfolio-info .details-link {
+  left: 50%;
+  font-size: 34px;
+  line-height: 0;
+}
+
+.portfolio .portfolio-content:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio .portfolio-content:hover img {
+  transform: scale(1.1);
+}
+
+
+
+.contact .info-wrap,
+.contact .info-wrap * {
+  font-size: 16px !important;
+}
+
+.contact .info-wrap,
+.contact .php-email-form {
+  background: rgba(34, 30, 60, 0.38) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.16) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid rgba(255,255,255,0.18) !important;
+  color: #f1f1f1 !important;
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+}
+
+@media (max-width: 575px) {
+  .contact .info-wrap {
+    padding: 20px;
+  }
+}
+
+.contact .info-item {
+  margin-bottom: 40px;
+}
+
+.contact .info-item i {
+  font-size: 20px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.contact .info-item i:hover {
+  color: #fff !important;
+  background: none !important;
+  text-shadow: 0 2px 16px #fff, 0 0 6px #fff;
+  box-shadow: 0 4px 24px #fff4;
+  transition: color 0.2s, text-shadow 0.3s, box-shadow 0.3s;
+}
+
+.contact .info-item h3 {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.contact .php-email-form {
+  background-color: transparent;
+  height: 100%;
+  padding: 30px;
+  box-shadow: none;
+}
+
+@media (max-width: 575px) {
+  .contact .php-email-form {
+    padding: 20px;
+  }
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 8px;
+  color: var(--default-color);
+  background: rgba(255,255,255,0.18); /* semi-transparent glassy */
+  border: 1px solid rgba(20,157,221,0.18);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #fff !important;
+  color: #222 !important;
+  box-shadow: 0 2px 16px #fff, 0 0 6px #fff;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+/*--------------------------------------------------------------
+# Project Details Section
+--------------------------------------------------------------*/
+.project-details .projects-list {
+  padding: 10px 30px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  margin-bottom: 20px;
+}
+.project-item {
+  margin-bottom: 30px; /* adjust the value as needed */
+    min-width: 360px;   /* Increase as needed */
+  max-width: 460px;   /* Increase as needed */
+   flex: 0 0 calc(33.333% - 20px);
+}
+
+
+.row.gy-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+
+.project-details .projects-list a {
+  display: block;
+  line-height: 1;
+  padding: 8px 0 8px 15px;
+  border-left: 3px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  margin: 20px 0;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  transition: 0.3s;
+}
+
+.project-details .projects-list a.active {
+  color: var(--heading-color);
+  font-weight: 700;
+  border-color: var(--accent-color);
+}
+
+.project-details .projects-list a:hover {
+  border-color: var(--accent-color);
+}
+
+.project-details .projects-img {
+  margin-bottom: 20px;
+}
+
+.project-details h3 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.project-details h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.project-details p {
+  font-size: 15px;
+}
+
+.project-details ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.project-details ul li {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+
+.project-details ul i {
+  font-size: 20px;
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+/* Additional styling for project icons and project items */
+.project-item .icon {
+  font-size: 36px;
+  color: var(--accent-color);
+  margin-right: 20px;
+}
+
+.project-item .title a {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--heading-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.project-item .title a:hover {
+  color: var(--accent-color);
+}
+
+.project-item .description {
+  font-size: 14px;
+  color: var(--default-color);
+  margin-top: 10px;
+}
+
+/*--------------------------------------------------------------
+# Starter Section Section
+--------------------------------------------------------------*/
+.starter-section {
+  /* Add your styles here */
+  /* starterpage.css */
+
+/* Starter Section */
+.starter-section {
+  background-color: #f9f9f9; /* Light background for the section */
+  padding: 60px 0;
+  text-align: center;
+}
+
+.starter-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.starter-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.starter-section p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Section Styling for Text */
+.starter-section p {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* If you want to add hover or special effects */
+.starter-section:hover {
+  background-color: #eaeaea; /* Light hover effect */
+}
+
+}
+
+/* Glassy effect for main content boxes */
+.skills.section,
+resume-card,
+.info-wrap,
+.php-email-form {
+  background: rgba(255,255,255,0.22);      /* semi-transparent white */
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.08);
+  backdrop-filter: blur(8px);              /* frosted glass effect */
+  -webkit-backdrop-filter: blur(8px);      /* Safari support */
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.resume-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.22); /* semi-transparent */
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Make all regular text larger for better readability */
+body,
+.section,
+.section p,
+.section li,
+.section span,
+.section label,
+.section input,
+.section textarea,
+.section .info-item p,
+.section .php-email-form input,
+.section .php-email-form textarea {
+  font-family: var(--default-font) !important;
+  font-size: 20px !important;
+  color: var(--default-color) !important;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.section-title p,
+.resume-card p,
+.skills .progress .skill,
+.contact .info-item p,
+.contact .php-email-form label {
+  font-size: 19px;
+}
+
+/* Trendy Skill Cards */
+.skill-card {
+  background: rgba(255,255,255,0.18);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.10);
+  padding: 32px 18px 24px 18px;
+  text-align: center;
+  margin-bottom: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(20, 157, 221, 0.18);
+}
+
+.skill-card h4 {
+  margin-top: 18px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.skill-card p {
+  font-size: 16px;
+  color: var(--default-color);
+  margin-top: 8px;
+}
+
+/* Circular Progress */
+.circle-progress {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  background: conic-gradient(
+    #149ddd calc(var(--percentage, 0) * 1%), 
+    #e0e7ef 0
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 1s;
+}
+.circle-progress .percentage {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #149ddd;
+  left: 0; right: 0; top: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .skill-card { margin-bottom: 24px; }
+  .circle-progress { width: 70px; height: 70px; }
+}
+
+/* Mini Skills Bars */
+.mini-skills-bars {
+  width: 260px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.10);
+  margin-top: 24px;
+}
+.mini-skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.mini-skill-label {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #149ddd;
+}
+.mini-bar-bg {
+  flex: 2;
+  height: 8px;
+  background: #e0e7ef;
+  border-radius: 6px;
+  margin: 0 10px;
+  overflow: hidden;
+}
+.mini-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #149ddd 60%, #f59aca 100%);
+  border-radius: 6px;
+  transition: width 1s cubic-bezier(.4,2,.6,1);
+}
+.mini-skill-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  min-width: 32px;
+  text-align: right;
+}
+
+@media (max-width: 1200px) {
+  .skill-bar {
+    min-width: 320px;
+    max-width: 98vw;
+    padding: 10px 10px 6px 10px;
+  }
+  .skills-bars-row {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+}
+
+/* Profile Hero Section */
+.profile-hero {
+  position: relative;
+  width: 340px;   /* Adjust as needed */
+  height: 340px;  /* Adjust as needed */
+  margin: 0 auto 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: brightness(0.9) blur(0.5px);
+  z-index: 1;
+  box-shadow: 0 0 50px 10px #a259f7, 0 0 0 10px #fff0;
+}
+
+.profile-photo-main {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  box-shadow: 0 0 32px 6px #f59aca99, 0 0 0 8px #fff;
+  background: transparent;
+  transition: transform 0.3s;
+}
+
+.profile-photo-main:hover {
+  transform: scale(1.04) rotate(-2deg);
+  box-shadow: 0 0 48px 12px #149ddd88, 0 0 0 10px #fff;
+}
+
+/* Remove glassy box from skills section */
+.skills.section,
+.skills-bars {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Use the same hover effect color as resume-card for all main cards/boxes */
+.section,
+.section-title,
+.info-wrap,
+.skills,
+skills-bars,
+.skills-column,
+.skill-bar,
+.contact .php-email-form,
+.about .content,
+.about .profile-img,
+.starter-section,
+.project-item,
+.portfolio-details .portfolio-info,
+.portfolio-details .portfolio-description,
+.skill-card {
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+}
+
+.section:hover,
+.section-title:hover,
+.info-wrap:hover,
+.skills:hover,
+.skills-bars:hover,
+.skills-column:hover,
+.skill-bar:hover,
+.contact .php-email-form:hover,
+.about .content:hover,
+.about .profile-img:hover,
+.starter-section:hover,
+.project-item:hover,
+.portfolio-details .portfolio-info:hover,
+.portfolio-details .portfolio-description:hover,
+.skill-card:hover {
+  background: rgba(20, 20, 60, 0.48) !important;
+  box-shadow: 0 12px 48px rgba(20, 157, 221, 0.18) !important;
+  transform: translateY(-6px) scale(1.025);
+}
+
+.projects-section:hover {
+  background: rgba(20, 20, 60, 0.18);
+  box-shadow: 0 4px 32px rgba(20, 157, 221, 0.10);
+  transition: background 0.3s, box-shadow 0.3s;
+ box-shadow: 0 4px 32px rgba(20, 157, 221, 0.10);  transition: background 0.3s, box-shadow 0.3s;}
+.project-item {
+  background: rgba(40, 30, 60, 0.38); /* slightly more solid */
+  border-radius: 22px;
+  box-shadow: 0 2px 12px rgba(20, 157, 221, 0.10);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s, z-index 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.project-item:hover {
+  background: rgba(20, 20, 60, 0.78) !important;
+  box-shadow: 0 16px 56px rgba(20, 157, 221, 0.28) !important;
+  transform: translateY(-6px) scale(1.025);
+  z-index: 10;
+}
+/* Input and textarea fields inside the form */
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  background: rgba(255,255,255,0.10);
+  border: 1.5px solid #4e54c8;
+  color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(78, 84, 200, 0.08);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #E49BFF;
+  box-shadow: 0 0 0 2px #E49BFF55;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Contact form input/textarea hover effect */
+.contact .php-email-form input[type="text"]:hover,
+.contact .php-email-form input[type="email"]:hover,
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
+.contact .php-email-form textarea:hover,
+.contact .php-email-form textarea:focus {
+  border-color: #3a82e7;
+  box-shadow: 0 0 0 2px #3a82e788;
+  outline: none;
+  background: rgba(58, 130, 231, 0.11); /* subtle accent on hover */
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: #dadacb;
+  opacity: 1;
+}
+
+@media (min-width: 992px) {
+  #contact .row.gy-4 {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 48px; /* Adjust gap as needed */
+  }
+  #contact .col-lg-5,
+  #contact .col-lg-7 {
+    flex: 1 1 0;
+    max-width: none;
+    width: auto;
+  }
+  #contact .col-lg-5 {
+    margin-right: 0;
+  }
+}
+
+/* Glassy effect for resume viewer */
+#resume-viewer {
+  display: none;
+  margin-top: 30px;
+  background: rgba(34, 30, 60, 0.22) !important; /* glassy background */
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.10);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.18);
+  max-width: 850px;      /* Set your preferred max width */
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#resume-viewer img {
+  display: block;
+  max-width: 700px;    /* Set your preferred max width */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(34,30,60,0.10);
+}
+
+#resume-viewer iframe {
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.about-content-box {
+  background: rgba(34, 30, 60, 0.48);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(20, 157, 221, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2px solid rgba(255,255,255,0.18);
+  padding: 48px 48px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1100px; /* Increased width */
+  width: 100%;
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s, backdrop-filter 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Stats Section
+--------------------------------------------------------------*/
+.stats .stats-item {
+  padding: 30px;
+  width: 100%;
+}
+
+.stats .stats-item i {
+  color: var(--accent-color);
+  display: block;
+  font-size: 44px;
+  float: left;
+  line-height: 0;
+}
+
+.stats .stats-item .purecounter {
+  color: var(--heading-color);
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  margin-left: 60px;
+}
+
+.stats .stats-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding: 15px 0 0 0;
+  margin: 0 0 0 60px;
+  font-family: var(--heading-font);
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+}
+.skill-intro {
+  text-align: center;
+  margin-top: 0;           /* Remove negative margin */
+  margin-bottom: 40px;     /* Add more space below */
+  font-size: 20px;
+  color: var(--default-color); /* Adjust or replace with a color like #fff */
+}
+
+
+#skills.section {
+  padding-top: 30px;
+}
+.skills .progress .skill {
+  color: var(--heading-color);
+  padding: 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  height: 10px;
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: var(--accent-color);
+}
+/*
+.skills-bars {
+  max-width: 1600px;   
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+  
+}*/
+.skill-bar {
+  background: rgba(34, 30, 60, 0.38) !important;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  transition: 
+    box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+    transform 0.22s cubic-bezier(.4,2,.6,1),
+    background 0.22s;
+  cursor: pointer;
+  word-break: break-word;
+}
+.skills-bars-row {
+  display: flex;
+  gap: 120px; /* or more for wider gap */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.skill-bar {
+  min-width: 520px;      /* Increased from 420px */
+  max-width: 700px;      /* Increased from 600px */
+  background: rgba(255,255,255,0.28);
+  border-radius: 22px;
+  padding: 10px 40px 6px 40px; /* More horizontal padding */
+  box-shadow: 0 4px 32px rgba(20, 157, 221, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  transition: 
+    box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+    transform 0.22s cubic-bezier(.4,2,.6,1),
+    background 0.22s;
+  cursor: pointer;
+  word-break: break-word; /* Ensures long words wrap if needed */
+}
+.skill-bar:hover {
+  background: rgba(20,157,221,0.08);
+  box-shadow: 0 8px 40px rgba(20, 157, 221, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+  transform: translateY(-6px) scale(1.025);
+}
+.skill-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #149ddd;
+  margin-bottom: 6px;
+}
+.bar-bg {
+  width: 100%;
+  height: 7px;              /* Slimmer bar */
+  background: #e0e7ef;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #149ddd 60%, #f59aca 100%);
+  border-radius: 8px;
+  transition: width 1.2s cubic-bezier(.4,2,.6,1);
+}
+.skill-percent {
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  margin-top: 2px;
+}
+@media (max-width: 800px) {
+  .skills-bars-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# Resume Section
+--------------------------------------------------------------*/
+.resume .resume-title {
+  color: var(--heading-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.resume-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 0 !important;
+  padding: 36px 0 !important;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 48px auto;
+  max-width: 900px;
+  transition: none;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+.portfolio .portfolio-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio .portfolio-content img {
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-content .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+}
+
+.portfolio .portfolio-content .portfolio-info h4 {
+  font-size: 14px;
+  padding: 5px 10px;
+  font-weight: 400;
+  color: #ffffff;
+  display: inline-block;
+  background-color: var(--accent-color);
+}
+
+.portfolio .portfolio-content .portfolio-info p {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio .portfolio-content .portfolio-info .preview-link,
+.portfolio .portfolio-content .portfolio-info .details-link {
+  position: absolute;
+  left: calc(50% - 40px);
+  font-size: 26px;
+  top: calc(50% - 14px);
+  color: #fff;
+  transition: 0.3s;
+  line-height: 1.2;
+}
+
+.portfolio .portfolio-content .portfolio-info .preview-link:hover,
+.portfolio .portfolio-content .portfolio-info .details-link:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-content .portfolio-info .details-link {
+  left: 50%;
+  font-size: 34px;
+  line-height: 0;
+}
+
+.portfolio .portfolio-content:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio .portfolio-content:hover img {
+  transform: scale(1.1);
+}
+
+
+
+.contact .info-wrap,
+.contact .info-wrap * {
+  font-size: 16px !important;
+}
+
+.contact .info-wrap,
+.contact .php-email-form {
+  background: rgba(34, 30, 60, 0.38) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px rgba(78, 84, 200, 0.16) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid rgba(255,255,255,0.18) !important;
+  color: #f1f1f1 !important;
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+}
+
+@media (max-width: 575px) {
+  .contact .info-wrap {
+    padding: 20px;
+  }
+}
+
+.contact .info-item {
+  margin-bottom: 40px;
+}
+
+.contact .info-item i {
+  font-size: 20px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.contact .info-item i:hover {
+  color: #fff !important;
+  background: none !important;
+  text-shadow: 0 2px 16px #fff, 0 0 6px #fff;
+  box-shadow: 0 4px 24px #fff4;
+  transition: color 0.2s, text-shadow 0.3s, box-shadow 0.3s;
+}
+
+.contact .info-item h3 {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.contact .php-email-form {
+  background-color: transparent;
+  height: 100%;
+  padding: 30px;
+  box-shadow: none;
+}
+
+@media (max-width: 575px) {
+  .contact .php-email-form {
+    padding: 20px;
+  }
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 8px;
+  color: var(--default-color);
+  background: rgba(255,255,255,0.18); /* semi-transparent glassy */
+  border: 1px solid rgba(20,157,221,0.18);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #fff !important;
+  color: #222 !important;
+  box-shadow: 0 2px 16px #fff, 0 0 6px #fff;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+.form-message {
+  display: none;
+  max-width: 340px;
+  margin: 0 0 18px 0;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.10);
+  background: #eafaf1;
+  color: #155724;
+  text-align: left;
+  position: relative;
+  left: 0;
+  border-left: 6px solid #28a745;
+  transition: all 0.5s cubic-bezier(.77,0,.18,1);
+  opacity: 1;
+}
+
+.form-message.error {
+  border-left-color: #dc3545;
+  color: #721c24;
+  background: #fbeaea;
+}
+
+.form-message.slide-right {
+  left: 300px;
+  opacity: 0;
+}
+/* Make sidebar and skills section mobile-friendly */
+@media (max-width: 600px) {
+  .header {
+    display: none !important;
+  }
+  .skills-bars-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+  .skill-bar {
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    padding: 10px 8px 6px 8px !important;
+    font-size: 15px !important;
+  }
+}
+/* Hide sidebar on small screens */
+@media (max-width: 991px) {
+  .header {
+    display: none !important;
+  }
+}
+@media (max-width: 991px) {
+  .navmenu-horizontal ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .navmenu-horizontal li {
+    margin: 0 4px;
+  }
+  .navmenu-horizontal {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+/* Match the background of portfolio items to the glassy dark theme */
+.testimonials.section.light-background {
+  background: rgba(34, 30, 60, 0.48); /* Same as about-content-box */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 60px 0;
+}
+/* Portfolio section background */
+#portfolio {
+  background: rgba(34, 30, 60, 0.18); /* translucent dark, like other sections */
+  padding: 60px 0;
+}
+
+/* Glassy container inside portfolio for padding and blur */
+#portfolio .about-content-box {
+  background: rgba(34, 30, 60, 0.48);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(20, 157, 221, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  max-width: 95vw;         /* wider container */
+  padding: 60px 64px;
+  margin: auto;
+  min-height: 520px;       /* more vertical space */
+}
+
+/* Each portfolio card */
+.testimonial-item {
+  background: rgba(34, 30, 60, 0.48);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(20, 157, 221, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  height: 100%;     
+}
+
+/* Hover effect on portfolio card */
+.testimonial-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 32px 8px rgba(255, 255, 255, 0.32), 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.035);
+}
+
+/* Image inside the card */
+.testimonial-img {
+  width: 360px;   /* increased width */
+  height: 280px;  /* increased height */
+  object-fit: cover;
+  border-radius: 12px; /* optional: rounded corners */
+  
+  object-fit: cover;
+ 
+  margin-bottom: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* Heading inside each card (name/title) */
+.testimonial-item h3 {
+  font-size: 4px;  /* smaller but still readable */
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--text-color);
+  line-height: 0.9;
+}
+
+/* Subheading or secondary line */
+.testimonial-item h4 {
+  font-size: 3px;  /* smaller font */
+  color: var(--text-color);
+  margin-bottom: 2px;
+  line-height: 0.9;
+}
+.testimonial-item h6 {
+  font-size: 10px;  /* smaller font */
+  margin: 2px 0;
+  text-align: center;
+  color: #ccc;
+}
+/* Position arrows on left and right */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #14a0dd;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(20, 157, 221, 0.25);
+  box-shadow: 0 0 10px rgba(20, 157, 221, 0.5);
+  z-index: 10;
+}
+.swiper {
+  width: 100%;
+  height: 420px;           /* increased height */
+  margin: auto;
+}
+
+.swiper-wrapper {
+  height: 100%;
+  align-items: center;
+}.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff; /* white arrow icon */
+  width: 40px;
+  height: 40px;
+  font-size: 10px;  
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4); /* dark background for contrast */
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.5); /* blue soft glow */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px); /* adds slight glass effect */
+}
+
+/* Bright blue glow on hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(9, 41, 75, 0.6); /* vibrant blue background */
+  box-shadow: 0 0 20px rgba(1, 17, 33, 0.9); /* strong glow */
+}
+
+/* Left arrow */
+.swiper-button-prev {
+  left: 10px;
+}
+
+/* Right arrow */
+.swiper-button-next {
+  right: 10px;
+}
+
+/* Increase swiper-slide width and height */
+.swiper-slide {
+  width: 380px !important; /* bigger fixed width */
+  height: 350px; /* increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .swiper {
+    height: auto;
+  }
+   .portfolio-caption {
+    font-size: 8px !important;
+  }
+
+  .swiper-slide {
+    width: 280px !important;
+    height: auto;
+  }
+
+  .testimonial-img {
+    width: 220px;
+    height: 140px;
+  }
+
+  .testimonial-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-item h4 {
+    font-size: 0.85rem;
+  }
+}
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.6); /* soft white base */
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px !important;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* white glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Active dot with stronger glow */
+.swiper-pagination-bullet-active {
+  background: #ffffff;
+  transform: scale(1.4);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+/* Overlay backdrop */
+#img-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75); /* dark background */
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+/* Enlarged image style */
+#img-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s ease;
+}
+.zoom-img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+.portfolio-caption {
+  font-size: 8px;     /* Reduce the font size */
+  margin-top: 3px;     /* Decrease space above the caption */
+  line-height: 1.1; 
+  font-weight: 200;
+   color: #ccc; /* optional */   /* Optional: tighter line spacing */
+  text-align: center;  /* Optional: keep text centered */
+}
+.testimonial-item .portfolio-caption {
+  font-size: 8px;
+  margin-top: 4px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.hover-text,
+.hover-text-project {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.425);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* For testimonials (centered) */
+.testimonial-item {
+  position: relative;
+}
+
+.testimonial-item:hover .hover-text {
+  opacity: 1;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* For projects (higher) */
+.project-item {
+  position: relative;
+}
+
+.project-item:hover .hover-text-project {
+  opacity: 1;
+  top: 90%; 
+}
