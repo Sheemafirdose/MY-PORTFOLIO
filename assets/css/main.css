@@ -2859,3 +2859,65 @@ skills-bars,
   opacity: 1;
   top: 90%; 
 }
+/* Sticky Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Make sure it stays above other content */
+  background-color: rgba(34, 30, 60, 0.9); /* Optional: glassy or solid bg */
+  backdrop-filter: blur(8px); /* For glassy effect */
+  -webkit-backdrop-filter: blur(8px);
+}
+@media (max-width: 768px) {
+  .portfolio-details {
+    padding: 20px 10px;
+    flex-direction: column !important;
+  }
+
+  .portfolio-details .portfolio-info {
+    padding: 20px 15px;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .portfolio-details .portfolio-description {
+    padding-top: 20px;
+  }
+
+  .portfolio-details-slider img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.container, .section {
+  width: 100%;
+  padding: 0 15px;
+}
+@media (max-width: 768px) {
+  .navmenu-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .navmenu-horizontal li {
+    margin: 0 6px;
+  }
+
+  .navmenu-horizontal a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
